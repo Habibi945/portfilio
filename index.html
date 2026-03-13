@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAFIONICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <audio id="bg-audio" autoplay loop>
+        <source src="sound.mp3" type="audio/mpeg">
+    </audio>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="content-overlay">
+        <header class="header">
+            <div class="logo">GRAFIONICS</div>
+            <nav class="navigation">
+                <a href="#home" class="nav-link active">Main</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact-slide" class="contact-btn">Contact Me</a>
+            </nav>
+        </header>
+
+        <main id="home" class="hero">
+            <h1 class="hero-title">
+                <span class="line-1">Agency that makes your</span>
+                <span class="line-2-container">
+                    <span class="line-2 word-1">Websites</span>
+                    <span class="line-2 word-2">Logos</span>
+                    <span class="line-2 word-3">Brands</span>
+                    <span class="line-2 word-4">Product Shoots</span>
+                </span>
+            </h1>
+        </main>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-headline">Turning imagination into design.</h2>
+                    <p class="about-paragraph">
+                        GRAFIONICS is a creative studio dedicated to bringing visions to life. We specialize in
+                        designing stunning websites, impactful logos, complete brand identities, and visually compelling
+                        content for modern businesses. Beyond digital spaces, we proudly showcase physical products,
+                        such as elegant jewelry, presenting them with attractive product visuals and innovative creative
+                        design. Our goal is to empower brands to stand out through distinctive modern design, refined
+                        creativity, and incredibly clean digital experiences.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous image">&#10094;</button>
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-img left-img">
+                            <img src="jewel1.jpg" alt="Jewelry Product 1">
+                        </div>
+                        <div class="carousel-img center-img">
+                            <img src="jewel2.jpg" alt="Jewelry Product 2">
+                        </div>
+                        <div class="carousel-img right-img">
+                            <img src="jewel3.jpg" alt="Jewelry Product 3">
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-label">Projects Completed</span>
+                    <span class="stat-number" data-target="1400">0+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Happy Clients</span>
+                    <span class="stat-number" data-target="1200">0+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Years of Design Experience</span>
+                    <span class="stat-number" data-target="2">0+</span>
+                </div>
+            </div>
+
+            <div class="why-us-content">
+                <h2 class="why-us-headline">Why Us</h2>
+                <p class="why-us-paragraph">
+                    Choosing GRAFIONICS means partnering with a team that values creativity, professionalism, and
+                    delivering premium designs. We go beyond simple aesthetics to craft compelling stories for your
+                    brand. Our commitment to high-quality design ensures that every project—from digital platforms to
+                    product showcases—is built to impress, perform, and endure.
+                </p>
+            </div>
+        </section>
+
+        <section id="process" class="process-section">
+            <h2 class="process-headline">How We Work</h2>
+            <div class="process-container">
+                <div class="process-box">
+                    <div class="process-number" data-target="1">00</div>
+                    <h3 class="process-title">Product Design</h3>
+                    <p class="process-desc">Craft creative product designs that reflect the brand’s identity and vision,
+                        making each product visually appealing and unique.</p>
+                </div>
+                <div class="process-box">
+                    <div class="process-number" data-target="2">00</div>
+                    <h3 class="process-title">Brand Identity</h3>
+                    <p class="process-desc">Develop strong, memorable brand identities including logos, colors, and
+                        visual elements that make the brand instantly recognizable.</p>
+                </div>
+                <div class="process-box">
+                    <div class="process-number" data-target="3">00</div>
+                    <h3 class="process-title">Website & Product Shoots</h3>
+                    <p class="process-desc">Create stunning websites and visually showcase products through high-quality
+                        imagery that highlights the brand’s work and products.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Marquee Section -->
+        <section id="contact-slide" class="marquee-section">
+            <div class="marquee-track top-track">
+                <div class="marquee-content left-to-right">
+                    LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ 
+                </div>
+                <div class="marquee-content left-to-right" aria-hidden="true">
+                    LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ 
+                </div>
+            </div>
+
+            <div class="marquee-center">
+                <a href="https://www.instagram.com/grafionics/" target="_blank" class="instagram-prominent">
+                    @grafionics
+                    <span class="click-indicator">
+                        <span class="click-icon">👆</span> Click to follow
+                    </span>
+                </a>
+            </div>
+
+            <div class="marquee-track bottom-track">
+                <div class="marquee-content right-to-left">
+                    INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ 
+                </div>
+                <div class="marquee-content right-to-left" aria-hidden="true">
+                    INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ INNOVATION IS THE KEY ✨ LET'S COLLABORATE CREATIVELY ✨ 
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts for carousel, stats, and process numbers -->
+    <script src="main.js"></script>
+</body>
+
+</html>

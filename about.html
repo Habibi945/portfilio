@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - GRAFIONICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <audio id="bg-audio" autoplay loop>
+        <source src="sound.mp3" type="audio/mpeg">
+    </audio>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="content-overlay">
+        <header class="header">
+            <div class="logo">GRAFIONICS</div>
+            <nav class="navigation">
+                <a href="index.html" class="nav-link">Main</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact-slide" class="contact-btn">Contact Me</a>
+            </nav>
+        </header>
+
+        <main class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h1 class="about-headline">Turning imagination into design.</h1>
+                    <p class="about-paragraph">
+                        GRAFIONICS is a creative studio dedicated to bringing visions to life. We specialize in designing stunning websites, impactful logos, complete brand identities, and visually compelling content for modern businesses. Beyond digital spaces, we proudly showcase physical products, such as elegant jewelry, presenting them with attractive product visuals and innovative creative design. Our goal is to empower brands to stand out through distinctive modern design, refined creativity, and incredibly clean digital experiences.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous image">&#10094;</button>
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Img 1 -->
+                        <div class="carousel-img left-img">
+                            <img src="jewel1.jpg" alt="Jewelry Product 1">
+                        </div>
+                        <!-- Img 2 -->
+                        <div class="carousel-img center-img">
+                            <img src="jewel2.jpg" alt="Jewelry Product 2">
+                        </div>
+                        <!-- Img 3 -->
+                        <div class="carousel-img right-img">
+                            <img src="jewel3.jpg" alt="Jewelry Product 3">
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.carousel-img');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Define initial positions
+        let order = [0, 1, 2]; // index array corresponding to left, center, right
+
+        function updateCarousel() {
+            // Remove all position classes
+            items.forEach(item => {
+                item.classList.remove('left-img', 'center-img', 'right-img');
+            });
+
+            // Re-assign based on current order
+            items[order[0]].classList.add('left-img');
+            items[order[1]].classList.add('center-img');
+            items[order[2]].classList.add('right-img');
+        }
+
+        function moveNext() {
+            // left becomes the new right, center becomes new left, etc.
+            let first = order.shift();
+            order.push(first);
+            updateCarousel();
+        }
+
+        function movePrev() {
+            let last = order.pop();
+            order.unshift(last);
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            moveNext();
+            resetInterval();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            movePrev();
+            resetInterval();
+        });
+
+        // Autoplay every 5 seconds
+        let autoPlay = setInterval(moveNext, 5000);
+
+        function resetInterval() {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(moveNext, 5000);
+        }
+    </script>
+</body>
+
+</html>

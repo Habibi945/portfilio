@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GRAFIONICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Your EmailJS Public Key
+            emailjs.init("xQQSvWU6DfKPnZkUS");
+        })();
+    </script>
+</head>
+<body class="contact-page-body">
+    <header class="header solid-nav">
+        <div class="logo">GRAFIONICS</div>
+        <nav class="navigation">
+            <a href="index.html#home" class="nav-link">Main</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#contact-slide" class="contact-btn">Contact Me</a>
+        </nav>
+    </header>
+
+    <main class="contact-page-container">
+        <div class="contact-form-wrapper">
+            <h1 class="contact-page-headline">Get in Touch</h1>
+            <p class="contact-page-subheadline">We'd love to hear from you. Fill out the form below and we will get back to you shortly.</p>
+            
+            <!-- Using EmailJS for form submission -->
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" id="city" name="city" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group half">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" id="country" name="country" class="form-input" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+            
+            const submitBtn = document.querySelector('.contact-form-submit');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Sending...";
+
+            // Send the form using EmailJS service ID and template ID
+            emailjs.sendForm('service_nqyn7ts', 'template_9vqbb5b', this)
+                .then(() => {
+                    alert('Success! Your message has been sent.');
+                    document.getElementById('contact-form').reset();
+                    submitBtn.innerText = originalBtnText;
+                }, (error) => {
+                    alert('Failed to send message. Error: ' + JSON.stringify(error));
+                    submitBtn.innerText = originalBtnText;
+                });
+        });
+    </script>
+</body>
+</html>
